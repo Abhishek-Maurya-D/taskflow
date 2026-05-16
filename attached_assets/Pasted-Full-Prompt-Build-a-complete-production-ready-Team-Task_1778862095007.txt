@@ -1,0 +1,444 @@
+Full Prompt
+
+Build a complete production-ready Team Task Manager Web Application using the MERN Stack (MongoDB, Express.js, React.js, Node.js).
+
+The application must be modern, scalable, secure, responsive, and fully deployable on Railway. The project should follow industry-level architecture and coding standards because this application will be used for technical evaluation and selection purposes.
+
+📌 Project Overview
+
+Create a collaborative task management platform where users can:
+
+Create accounts and login securely
+Create and manage projects
+Invite/manage team members
+Create, assign, edit, and delete tasks
+Track project progress
+View dashboards and analytics
+Use role-based access control (Admin/Member)
+
+The application should work similarly to simplified versions of:
+
+Trello
+Jira
+ClickUp
+Asana
+🛠 Tech Stack Requirements
+Frontend
+
+Use:
+
+React.js (Vite preferred)
+React Router DOM
+Axios
+Tailwind CSS or Material UI
+Context API or Redux Toolkit
+React Hook Form
+Toast notifications
+Responsive UI
+Backend
+
+Use:
+
+Node.js
+Express.js
+JWT Authentication
+bcrypt password hashing
+Express middleware
+REST APIs
+Role-based authorization
+Database
+
+Use MongoDB with Mongoose.
+
+Database should include proper schema relationships and validations.
+
+🔐 Authentication System
+
+Implement complete authentication flow.
+
+Required Features
+Signup
+
+Users can register using:
+
+Name
+Email
+Password
+Login
+JWT-based authentication
+Secure password hashing using bcrypt
+Store token securely
+Authorization
+
+Implement role-based access:
+
+Roles
+Admin
+
+Can:
+
+Create projects
+Add/remove members
+Assign tasks
+Edit/delete all tasks
+View analytics/dashboard
+Member
+
+Can:
+
+View assigned projects
+Update task status
+Comment on tasks
+View dashboard
+📁 Project Management Module
+Features
+Create Project
+
+Fields:
+
+Project name
+Description
+Deadline
+Status
+Project Actions
+
+Admin can:
+
+Edit project
+Delete project
+Add members
+Remove members
+Project Dashboard
+
+Show:
+
+Total tasks
+Completed tasks
+Pending tasks
+Overdue tasks
+Progress percentage
+✅ Task Management Module
+Task Features
+
+Each task should contain:
+
+Title
+Description
+Priority (Low/Medium/High)
+Status (Todo/In Progress/Completed)
+Due date
+Assigned member
+Created by
+Comments
+Attachments (optional)
+Task Operations
+
+Admin can:
+
+Create tasks
+Assign tasks
+Edit tasks
+Delete tasks
+
+Members can:
+
+Update task status
+Add comments
+📊 Dashboard Features
+
+Create a beautiful dashboard with charts/cards.
+
+Dashboard Should Include
+Tasks completed
+Tasks pending
+Overdue tasks
+Project progress
+Team performance
+Recent activities
+
+Use chart libraries like:
+
+Recharts
+Chart.js
+🔎 Search & Filters
+
+Implement advanced filtering:
+
+Filter by status
+Filter by priority
+Filter by due date
+Search by task title
+Search by project
+📱 UI/UX Requirements
+
+The UI should be:
+
+Fully responsive
+Clean and modern
+Mobile-friendly
+Smooth animations
+Professional SaaS-style design
+
+Include:
+
+Sidebar navigation
+Top navbar
+Cards
+Modals
+Loaders
+Empty states
+Error handling UI
+🔒 Security Requirements
+
+Must include:
+
+JWT authentication
+Password hashing
+Protected routes
+API validation
+Secure environment variables
+CORS configuration
+Rate limiting
+Helmet security middleware
+⚙️ Backend API Requirements
+
+Build complete REST APIs.
+
+Example API Structure
+Auth
+POST /api/auth/register
+POST /api/auth/login
+GET /api/auth/profile
+Projects
+POST /api/projects
+GET /api/projects
+GET /api/projects/:id
+PUT /api/projects/:id
+DELETE /api/projects/:id
+Tasks
+POST /api/tasks
+GET /api/tasks
+PUT /api/tasks/:id
+DELETE /api/tasks/:id
+Users
+GET /api/users
+PUT /api/users/:id/role
+🗂 Folder Structure
+
+Use clean scalable architecture.
+
+Backend Structure
+server/
+│
+├── config/
+├── controllers/
+├── middleware/
+├── models/
+├── routes/
+├── utils/
+├── validators/
+├── app.js
+└── server.js
+Frontend Structure
+client/
+│
+├── src/
+│   ├── api/
+│   ├── assets/
+│   ├── components/
+│   ├── context/
+│   ├── hooks/
+│   ├── layouts/
+│   ├── pages/
+│   ├── routes/
+│   ├── services/
+│   ├── utils/
+│   └── App.jsx
+🧠 Database Schema Requirements
+User Schema
+{
+  name,
+  email,
+  password,
+  role,
+  projects
+}
+Project Schema
+{
+  title,
+  description,
+  members,
+  tasks,
+  createdBy,
+  deadline
+}
+Task Schema
+{
+  title,
+  description,
+  status,
+  priority,
+  assignedTo,
+  project,
+  dueDate,
+  comments
+}
+✅ Validations
+
+Implement both:
+
+Frontend validations
+Backend validations
+
+Examples:
+
+Valid email format
+Password minimum length
+Required fields
+Duplicate email prevention
+Invalid token handling
+
+Use:
+
+Joi or express-validator
+React Hook Form validation
+🚀 Deployment Requirements (Mandatory)
+
+The application MUST be fully deployed and functional.
+
+Deploy using:
+
+Railway (Backend)
+Railway or Vercel (Frontend)
+MongoDB Atlas (Database)
+🌐 Railway Deployment Guide
+Step 1 — Push Code to GitHub
+
+Create GitHub repository:
+
+frontend
+backend
+
+Push complete code.
+
+Step 2 — MongoDB Atlas Setup
+Create MongoDB Atlas cluster
+Create database user
+Whitelist IP: 0.0.0.0/0
+Copy MongoDB connection string
+
+Example:
+
+MONGO_URI=mongodb+srv://username:password@cluster.mongodb.net/taskmanager
+Step 3 — Deploy Backend on Railway
+Backend Environment Variables
+PORT=5000
+MONGO_URI=your_mongodb_uri
+JWT_SECRET=your_secret_key
+CLIENT_URL=https://yourfrontendurl.com
+NODE_ENV=production
+Railway Steps
+Go to Railway
+Create new project
+Connect GitHub repo
+Select backend folder
+Add environment variables
+Deploy
+
+Backend must return live API URL.
+
+Example:
+
+https://team-task-manager-api.up.railway.app
+Step 4 — Deploy Frontend
+
+Use Railway or Vercel.
+
+Frontend Environment Variables
+VITE_API_URL=https://yourbackendurl.com/api
+Build Command
+npm run build
+Output Directory
+dist
+🔗 Connect Frontend & Backend
+
+Ensure:
+
+CORS is configured properly
+API URLs are working
+Authentication persists after refresh
+Protected routes function correctly
+🧪 Testing Requirements
+
+Application must be fully functional.
+
+Test:
+
+Authentication
+CRUD operations
+Role permissions
+API responses
+Mobile responsiveness
+Deployment URLs
+📘 README Requirements
+
+Create a professional README.md including:
+
+Include
+Project overview
+Features
+Tech stack
+Installation steps
+Environment variables
+API documentation
+Deployment links
+Screenshots
+Demo credentials
+📦 Submission Requirements
+
+Final submission must include:
+
+1. Live URL
+
+Fully working deployed application.
+
+2. GitHub Repository
+
+Clean structured code.
+
+3. README File
+
+Detailed setup instructions.
+
+⭐ Bonus Features (Highly Recommended)
+
+Add advanced features for better evaluation:
+
+Real-time notifications using Socket.io
+Drag & drop task board
+Dark mode
+Activity logs
+Email notifications
+File uploads
+Team chat
+Pagination
+Unit testing
+Docker support
+CI/CD pipeline
+✅ Final Important Requirements
+
+The application MUST:
+
+Be fully functional
+Have clean UI/UX
+Follow proper MERN architecture
+Be responsive on all devices
+Handle errors properly
+Include secure authentication
+Use proper validations
+Work perfectly after deployment
+Be production-ready
+Not contain broken routes or APIs
+Have optimized performance
+
+The deployed app should work without any manual fixes after deployment.
